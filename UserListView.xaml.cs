@@ -22,9 +22,8 @@ namespace Lab4
         public UserListView()
         {
             InitializeComponent();
-            DataContext = new UserListViewModel(UsersGrid);
+            DataContext = new UserListViewModel(UserDataGrid);
         }
 
-      
     }
 }

@@ -6,7 +6,7 @@ namespace Lab4
     [Serializable]
     class Person
     {
-        internal const string filename = "Persons.dat";
+        internal const string Filename = "Persons.dat";
         private readonly string _name;
         private readonly string _lastName;
         private readonly string _email;
@@ -74,7 +74,7 @@ namespace Lab4
 
         public string ChineseSign
         {
-            get { return setChineseHoroscope(); }
+            get { return SetChineseHoroscope(); }
         }
 
         public bool IsBirthday
@@ -96,7 +96,7 @@ namespace Lab4
             return age;
         }
 
-        bool IsValidEmail(string email)
+        public bool IsValidEmail(string email)
         {
             try
             {
@@ -177,7 +177,7 @@ namespace Lab4
             return " ";
         }
 
-        private string setChineseHoroscope()
+        private string SetChineseHoroscope()
         {
             int iChzod = _dateOfBirth.Year - ((_dateOfBirth.Year / 12) * 12);
             switch (iChzod)

@@ -18,3 +18,4 @@ C:\Users\HP\source\C#\Lab4\Lab4\bin\Debug\FontAwesome.WPF.xml
 C:\Users\HP\source\C#\Lab4\Lab4\obj\Debug\UserListView.g.cs
 C:\Users\HP\source\C#\Lab4\Lab4\obj\Debug\UserListView.baml
 C:\Users\HP\source\C#\Lab4\Lab4\obj\Debug\FillOutForm.g.cs
+C:\Users\HP\source\C#\Lab4\Lab4\obj\Debug\FillOutForm.baml

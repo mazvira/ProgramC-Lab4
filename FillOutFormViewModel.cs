@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace Lab4
 {
-    class MainWindowViewModel : INotifyPropertyChanged
+    class FillOutViewModel : INotifyPropertyChanged
     {
         private DateTime _dateOfBirth = DateTime.Today;
         private string _age;
@@ -20,7 +20,7 @@ namespace Lab4
         private readonly Action<bool> _showLoaderAction;
        
  
-        public MainWindowViewModel(Action<bool> showLoader)
+        public FillOutViewModel(Action<bool> showLoader)
         {
             _showLoaderAction = showLoader;
             CanExecute = true;

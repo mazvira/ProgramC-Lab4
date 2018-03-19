@@ -6,24 +6,21 @@
         xmlns:local="clr-namespace:Lab4"
         mc:Ignorable="d">
     <Grid Name="UsersGrid">
-        <DataGrid ItemsSource="{Binding Users, Mode=OneWay}" AutoGenerateColumns="False" Name="UserDataGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DataGrid ItemsSource="{Binding Users, Mode=OneWay}" AutoGenerateColumns="False" Name="UserDataGrid" Grid.Row="0">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="First name" Binding="{Binding Name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Last name" Binding="{Binding LastName}"></DataGridTextColumn>
                 <DataGridTextColumn Header="E-mail" Binding="{Binding Email}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Date of birth" Binding="{Binding DateOfBirth}"></DataGridTextColumn>
-                <DataGridTextColumn Header="IsAdult" Binding="{Binding Age}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Age" Binding="{Binding Age}"></DataGridTextColumn>
                 <DataGridTextColumn Header="IsAdult" Binding="{Binding IsAdult}"></DataGridTextColumn>
                 <DataGridTextColumn Header="SunSign" Binding="{Binding SunSign}"></DataGridTextColumn>
-                <DataGridTextColumn Header="ChineseSign}" Binding="{Binding ChineseSign}"></DataGridTextColumn>
+                <DataGridTextColumn Header="ChineseSign" Binding="{Binding ChineseSign}"></DataGridTextColumn>
                 <DataGridTextColumn Header="IsBirthday" Binding="{Binding IsBirthday}"></DataGridTextColumn>
-                <DataGridTemplateColumn>
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Click="Edit">Edit</Button>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -33,6 +30,5 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Add" Command="{Binding Add}" IsEnabled="{Binding CanExecute}"></Button>
     </Grid>
 </UserControl>

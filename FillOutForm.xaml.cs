@@ -25,8 +25,7 @@ namespace Lab4
         public FillOutForm()
         {
             InitializeComponent();
-            DataContext = new MainWindowViewModel(ShowLoader);
-            //DataContext = new UserListView;
+            DataContext = new FillOutViewModel(ShowLoader);
         }
 
         public void ShowLoader(bool isShow)

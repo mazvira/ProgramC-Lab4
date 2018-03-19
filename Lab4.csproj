@@ -62,7 +62,7 @@
     </Compile>
     <Compile Include="FutureDateOfBirthException.cs" />
     <Compile Include="LoaderHelper.cs" />
-    <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="FillOutViewModel.cs" />
     <Compile Include="OldDateOfBirthException.cs" />
     <Compile Include="RelayCommand.cs" />
     <Compile Include="SerializeHelper.cs" />

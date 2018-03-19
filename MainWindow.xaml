@@ -6,40 +6,6 @@
         xmlns:local="clr-namespace:Lab4"
         mc:Ignorable="d"
         Title="MainWindow" Height="425" Width="550">
-    <Grid Name="MainGrid">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-
-        </Grid.RowDefinitions>
-
-        <StackPanel Grid.Row="0" Orientation="Vertical">
-            <Label Content="Enter your name please: "></Label>
-            <TextBox Name="TextBox" Grid.Row ="1" FontSize="12" FontWeight="Black" Height="25" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <Label Content="Enter your last name please: "></Label>
-            <TextBox Name="TextBox2" Grid.Row ="2" FontSize="12" FontWeight="Black" Height="25" Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <Label Content="Enter your e-mail please: "></Label>
-            <TextBox Name="TextBox3" Grid.Row ="3" FontSize="12" FontWeight="Black" Height="25" Text="{Binding Email , Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <Label Content="Enter your date of birth please: "></Label>
-            <DatePicker SelectedDate="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></DatePicker>
-        </StackPanel>
-        <Button Grid.Row="1" Content="Proceed " Command="{Binding CountAge}" IsEnabled="{Binding CanExecute}"></Button>
-        <TextBlock Grid.Row="2" Text="{Binding NameForResult , Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
-        <TextBlock Grid.Row="3" Text="{Binding LastNameForResult , Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
-        <TextBlock Grid.Row="5" Text="{Binding EmailForResult, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
-        <TextBlock Grid.Row="6" Text="{Binding Age, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
-        <TextBlock Grid.Row="7" Text="{Binding ChineseHoroscope, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
-        <TextBlock Grid.Row="8" Text="{Binding WestHoroscope, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
-        <TextBlock Grid.Row="9" Text="{Binding IsAdult, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
-        <TextBlock Grid.Row="10" Text="{Binding IsBirthday, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+    <Grid Name="MainGid">
     </Grid>
 </Window>
