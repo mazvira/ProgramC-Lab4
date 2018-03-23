@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 
 namespace Lab4
@@ -31,9 +27,11 @@ namespace Lab4
         {
             _users = new ObservableCollection<Person> (DBAdapter.Users);
             _dataGrid = dataGrid;
-            _dataGrid.CellEditEnding += DataGrid_CellEditEnding;
+            _dataGrid.CellEditEnding += DataGrid_CellEditEnding; //add event 
+
         }
 
+        //eventHaNDLER
         private void DataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
             _dataRow = e.Row.Item as DataRowView;
@@ -41,35 +39,32 @@ namespace Lab4
             string column =  e.Column.Header.ToString();
             switch (column)
             {
-                case "First name":
-                    break;
-                case "Last name":
-                    break;
+              
                 case "E-mail":
-                    if(IsValidEmail(_email) == false)
+                    if(Person.IsValidEmail(text) == false)
                         e.Cancel = true;
                     break;
                 case "Date of birth":
+
+                    string[] date = text.Split('/');
+                    if(Int32.Parse(date[0]) > 31 || Int32.Parse(date[0])<1|| Int32.Parse(date[1])>12 || Int32.Parse(date[1]) <1 || Int32.Parse(date[2])<1883|| Int32.Parse(date[2])>2018)
+                        e.Cancel = true;
+                    //create DateTime (parse to int date items)
+                    string b = date[2].ToString();
+                    DateTime dateNew = new DateTime(Int32.Parse(date[2]), Int32.Parse(date[1]), Int32.Parse(date[0]));
+                    try
+                    {
+                        Person.CountAge(dateNew);
+                    }
+                    catch(Exception exception)
+                    {
+                        e.Cancel = true;
+                    }
+
                     break;
-                case "Age":
-                   if( Age > 135 || Age <0)
-                    break;
-                case "IsAdult":
-                    break;
-                case "SunSign":
-                    break;
-                case "ChineseSign":
-                    break;
-                case "IsBirthday":
-                    break;
+      
             }
                       
-        }
-
-        public void Remove(object o, EventArgs e)
-        {
-            Person person = (Person)_dataGrid.SelectedItems[0];
-            DBAdapter.Users.Remove(person);
         }
 
         #region Implementation

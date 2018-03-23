@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading;
@@ -8,7 +7,7 @@ using System.Windows;
 
 namespace Lab4
 {
-    class FillOutViewModel : INotifyPropertyChanged
+    class FillOutFormViewModel : INotifyPropertyChanged
     {
         private DateTime _dateOfBirth = DateTime.Today;
         private string _age;
@@ -20,7 +19,7 @@ namespace Lab4
         private readonly Action<bool> _showLoaderAction;
        
  
-        public FillOutViewModel(Action<bool> showLoader)
+        public FillOutFormViewModel(Action<bool> showLoader)
         {
             _showLoaderAction = showLoader;
             CanExecute = true;

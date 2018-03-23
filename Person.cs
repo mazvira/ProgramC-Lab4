@@ -9,7 +9,7 @@ namespace Lab4
         internal const string Filename = "Persons.dat";
         private readonly string _name;
         private readonly string _lastName;
-        private readonly string _email;
+        private string _email;
         private DateTime _dateOfBirth;
         private readonly int _age;
 
@@ -17,9 +17,9 @@ namespace Lab4
         {
             _name = name;
             _lastName = lastName;
-            _email = email;
+             Email = email;
             _dateOfBirth = dateOfBirth;
-            _age = CountAge();
+            _age = CountAge(_dateOfBirth);
         }
 
         internal Person(string name, string lastName, string email) : this(name, lastName, email, DateTime.MinValue)
@@ -34,7 +34,7 @@ namespace Lab4
             _name = name;
             _lastName = lastName;
             _dateOfBirth = dateOfBirth;
-            _age = CountAge();
+            _age = CountAge(_dateOfBirth);
         }
 
        public string Name
@@ -50,6 +50,12 @@ namespace Lab4
         public string Email
         {
             get { return _email; }
+            private set
+            {
+                if (IsValidEmail(value) == false)
+                    throw new WrongEmailAdressException("Wrong Email");
+                _email = value;
+            }
         }
 
         public DateTime DateOfBirth
@@ -82,13 +88,11 @@ namespace Lab4
             get { return _dateOfBirth.DayOfYear == DateTime.Today.DayOfYear; }
         }
 
-        private int CountAge()
+        internal static int CountAge(DateTime dateOfBirth)
         {
-            int age = DateTime.Today.Year - _dateOfBirth.Year;
-            if ((_dateOfBirth.Month > DateTime.Today.Month) || (_dateOfBirth.Month == DateTime.Today.Month && _dateOfBirth.Day > DateTime.Today.Day))
+            int age = DateTime.Today.Year - dateOfBirth.Year;
+            if (dateOfBirth.Month > DateTime.Today.Month || dateOfBirth.Month == DateTime.Today.Month && dateOfBirth.Day > DateTime.Today.Day)
                 age--;
-            if (IsValidEmail(_email) == false)
-                throw new WrongEmailAdressException("Wrong Email");
             if (age > 135)
                 throw new OldDateOfBirthException("Too old date");
             else if (age < 0)
@@ -96,7 +100,7 @@ namespace Lab4
             return age;
         }
 
-        public bool IsValidEmail(string email)
+        public static bool IsValidEmail(string email)
         {
             try
             {

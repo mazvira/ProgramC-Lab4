@@ -11,7 +11,7 @@ namespace Lab4
 
         static DBAdapter()
         {
-            var filepath = Path.Combine(GetAndCreateDataPath(), Person.filename);
+            var filepath = Path.Combine(GetAndCreateDataPath(), Person.Filename);
             if (File.Exists(filepath))
             {
                 try
@@ -65,7 +65,7 @@ namespace Lab4
 
         internal static void SaveData()
         {
-            SerializeHelper.Serialize(Users, Path.Combine(GetAndCreateDataPath(), Person.filename));
+            SerializeHelper.Serialize(Users, Path.Combine(GetAndCreateDataPath(), Person.Filename));
         }
 
         private static string GetAndCreateDataPath()

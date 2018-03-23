@@ -6,6 +6,22 @@
         xmlns:local="clr-namespace:Lab4"
         mc:Ignorable="d"
         Title="MainWindow" Height="425" Width="550">
-    <Grid Name="MainGid">
+    <Grid>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Column="0" Name="HamburgerButtonGrid" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Row="1" Name="ExpandedGrid" Visibility="Collapsed">
+                <Button Content="Log out" FontSize="36"></Button>
+            </Grid>
+        </Grid>
+        <Grid Column="1" Name="MainGrid">
+
+        </Grid>
     </Grid>
 </Window>

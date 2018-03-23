@@ -15,8 +15,6 @@ namespace Lab4
         public MainWindow()
         {
             InitializeComponent();
-            //DataContext = new FillOutFormViewModel(ShowLoader);
-            // DataContext = new UserListView();
             ShowUsersListView();
         }
 
@@ -27,19 +25,15 @@ namespace Lab4
 
         private void ShowUsersListView()
         {
-            HamburgerButtonGrid.Visibility = Visibility.Visible;
-
             if (_userListView == null)
             {
-                _userListView = new UserListView();
+                _userListView = new UserListView(ShowFillOutForm);
             }
             ShowView(_userListView);
         }
 
-        private void ShowFillOutForm()
+        private void ShowFillOutForm(object sender, EventArgs e)
         {
-            HamburgerButtonGrid.Visibility = Visibility.Visible;
-
             if (_fillOutForm == null)
             {
                 _fillOutForm = new FillOutForm();
