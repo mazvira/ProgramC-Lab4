@@ -27,7 +27,7 @@ namespace Lab4
         {
             _users = new ObservableCollection<Person> (DBAdapter.Users);
             _dataGrid = dataGrid;
-            _dataGrid.CellEditEnding += DataGrid_CellEditEnding; //add event 
+            _dataGrid.CellEditEnding += DataGrid_CellEditEnding; 
 
         }
 
@@ -49,7 +49,6 @@ namespace Lab4
                     string[] date = text.Split('/');
                     if(Int32.Parse(date[0]) > 31 || Int32.Parse(date[0])<1|| Int32.Parse(date[1])>12 || Int32.Parse(date[1]) <1 || Int32.Parse(date[2])<1883|| Int32.Parse(date[2])>2018)
                         e.Cancel = true;
-                    //create DateTime (parse to int date items)
                     string b = date[2].ToString();
                     DateTime dateNew = new DateTime(Int32.Parse(date[2]), Int32.Parse(date[1]), Int32.Parse(date[0]));
                     try

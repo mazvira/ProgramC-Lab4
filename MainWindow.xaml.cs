@@ -15,7 +15,7 @@ namespace Lab4
         public MainWindow()
         {
             InitializeComponent();
-            ShowUsersListView();
+            ShowUsersListView(UsersGrid, );
         }
 
         public void ShowLoader(bool isShow)
@@ -23,7 +23,7 @@ namespace Lab4
             LoaderHelper.OnRequestLoader(MainGrid, ref _loader, isShow);
         }
 
-        private void ShowUsersListView()
+        private void ShowUsersListView(object o, EventArgs e)
         {
             if (_userListView == null)
             {
@@ -32,11 +32,11 @@ namespace Lab4
             ShowView(_userListView);
         }
 
-        private void ShowFillOutForm(object sender, EventArgs e)
+        private void ShowFillOutForm(object o, EventArgs e)
         {
             if (_fillOutForm == null)
             {
-                _fillOutForm = new FillOutForm();
+                _fillOutForm = new FillOutForm(ShowUsersListView);
             }
             ShowView(_fillOutForm);
         }

@@ -7,11 +7,11 @@ namespace Lab4
     class Person
     {
         internal const string Filename = "Persons.dat";
-        private readonly string _name;
-        private readonly string _lastName;
+        private string _name;
+        private string _lastName;
         private string _email;
         private DateTime _dateOfBirth;
-        private readonly int _age;
+        private int _age;
 
         public Person(string name, string lastName, string email, DateTime dateOfBirth)
         {
@@ -40,11 +40,13 @@ namespace Lab4
        public string Name
         {
             get { return _name; }
-        }
+            set { _name = value; }
+       }
 
         public string LastName
         {
             get { return _lastName; }
+            set { _lastName = value; }
         }
 
         public string Email
@@ -61,11 +63,13 @@ namespace Lab4
         public DateTime DateOfBirth
         {
             get { return _dateOfBirth; }
+            set { _dateOfBirth = value; }
         }
 
         public int Age
         {
             get { return _age; }
+            set { _age = value; }
         }
 
         public bool IsAdult

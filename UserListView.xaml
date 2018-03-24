@@ -17,10 +17,10 @@
                 <DataGridTextColumn Header="E-mail" Binding="{Binding Email}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Date of birth" Binding="{Binding DateOfBirth}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Age" Binding="{Binding Age}"></DataGridTextColumn>
-                <DataGridTextColumn Header="IsAdult" Binding="{Binding IsAdult}"></DataGridTextColumn>
-                <DataGridTextColumn Header="SunSign" Binding="{Binding SunSign}"></DataGridTextColumn>
-                <DataGridTextColumn Header="ChineseSign" Binding="{Binding ChineseSign}"></DataGridTextColumn>
-                <DataGridTextColumn Header="IsBirthday" Binding="{Binding IsBirthday}"></DataGridTextColumn>
+                <DataGridTextColumn Header="IsAdult" Binding="{Binding IsAdult}" IsReadOnly="True"></DataGridTextColumn>
+                <DataGridTextColumn Header="SunSign" Binding="{Binding SunSign}" IsReadOnly="True"></DataGridTextColumn>
+                <DataGridTextColumn Header="ChineseSign" Binding="{Binding ChineseSign}"  IsReadOnly="True"></DataGridTextColumn>
+                <DataGridTextColumn Header="IsBirthday" Binding="{Binding IsBirthday }" IsReadOnly="True"></DataGridTextColumn>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>

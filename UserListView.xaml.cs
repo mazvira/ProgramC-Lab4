@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace Lab4
@@ -12,7 +13,7 @@ namespace Lab4
         {
             InitializeComponent();
             DataContext = new UserListViewModel(UserDataGrid);
-            AddUserButton.Click += action;
+            AddUserButton.Click += new RoutedEventHandler(action);
         }
 
         public void Remove(object o, EventArgs e)

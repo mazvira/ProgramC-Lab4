@@ -31,7 +31,7 @@
             <Label Content="Enter your date of birth please: "></Label>
             <DatePicker SelectedDate="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></DatePicker>
         </StackPanel>
-        <Button Grid.Row="1" Content="Proceed " Command="{Binding CountAge}" IsEnabled="{Binding CanExecute}"></Button>
+        <Button Name="SaveUserButton" Grid.Row="1" Content="Save User " Command="{Binding CountAge}" IsEnabled="{Binding CanExecute}"></Button>
         <TextBlock Grid.Row="2" Text="{Binding NameForResult , Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
         <TextBlock Grid.Row="3" Text="{Binding LastNameForResult , Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
         <TextBlock Grid.Row="5" Text="{Binding EmailForResult, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
