@@ -1,6 +1,5 @@
 ﻿using FontAwesome.WPF;
 using System;
-using System.Windows;
 using System.Windows.Controls;
 
 namespace Lab4
@@ -12,11 +11,11 @@ namespace Lab4
     {
         private ImageAwesome _loader;
 
-        public FillOutForm(Action<object, EventArgs> action)
+        public FillOutForm(Action action)
         {
             InitializeComponent();
-            DataContext = new FillOutFormViewModel(ShowLoader);
-            SaveUserButton.Click += new RoutedEventHandler(action);
+            DataContext = new FillOutFormViewModel(ShowLoader, action);
+
         }
 
         public void ShowLoader(bool isShow)

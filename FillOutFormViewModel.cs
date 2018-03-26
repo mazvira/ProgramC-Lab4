@@ -16,12 +16,14 @@ namespace Lab4
         private string _email;
         private bool _canExecute;
         private RelayCommand _countAge;
+        private Action _closingAction;
         private readonly Action<bool> _showLoaderAction;
-       
- 
-        public FillOutFormViewModel(Action<bool> showLoader)
+
+
+        public FillOutFormViewModel(Action<bool> showLoader, Action action)
         {
             _showLoaderAction = showLoader;
+            _closingAction = action;
             CanExecute = true;
         }
 
@@ -35,9 +37,9 @@ namespace Lab4
         public DateTime Date
         {
             get { return _dateOfBirth; }
-            set { _dateOfBirth = value; OnPropertyChanged(); }
-
+            private set { _dateOfBirth = value; OnPropertyChanged(); }
         }
+
         public string Age
         {
             get { return String.IsNullOrWhiteSpace(_age) ? "" : $"You are {_age} years of old"; }
@@ -48,15 +50,15 @@ namespace Lab4
         {
             get
             {
-                return _countAge ?? (_countAge = new RelayCommand(CountAgeImpl, o => !String.IsNullOrWhiteSpace(_name) && _dateOfBirth !=DateTime.MinValue &&
+                return _countAge ?? (_countAge = new RelayCommand(CountAgeImpl, o => !String.IsNullOrWhiteSpace(_name) && _dateOfBirth != DateTime.MinValue &&
                             !String.IsNullOrWhiteSpace(_lastName) && !String.IsNullOrWhiteSpace(_email)));
             }
         }
-       
+
         public string Name
         {
             get { return _name; }
-            set { _name = value; OnPropertyChanged(); }
+            private set { _name = value; OnPropertyChanged(); }
         }
 
         public string NameForResult
@@ -67,7 +69,7 @@ namespace Lab4
         public string LastName
         {
             get { return _lastName; }
-            set { _lastName = value; OnPropertyChanged(); }
+            private set { _lastName = value; OnPropertyChanged(); }
         }
 
         public string LastNameForResult
@@ -78,7 +80,7 @@ namespace Lab4
         public string Email
         {
             get { return _email; }
-            set { _email = value; OnPropertyChanged(); }
+            private set { _email = value; OnPropertyChanged(); }
         }
 
         public string EmailForResult
@@ -102,11 +104,7 @@ namespace Lab4
             {
                 if (_dateOfBirth.DayOfYear == DateTime.Today.DayOfYear)
                     MessageBox.Show("Happy Birthday");
-                OnPropertyChanged(nameof(NameForResult));
-                OnPropertyChanged(nameof(LastNameForResult));
-                OnPropertyChanged(nameof(EmailForResult));
-                Age = $"{StationManager.CurrentPerson.Age}";
-
+                _closingAction.Invoke();
             }
             CanExecute = true;
             _showLoaderAction.Invoke(false);

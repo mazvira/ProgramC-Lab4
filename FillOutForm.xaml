@@ -18,7 +18,6 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
-
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Orientation="Vertical">
@@ -32,13 +31,6 @@
             <DatePicker SelectedDate="{Binding Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></DatePicker>
         </StackPanel>
         <Button Name="SaveUserButton" Grid.Row="1" Content="Save User " Command="{Binding CountAge}" IsEnabled="{Binding CanExecute}"></Button>
-        <TextBlock Grid.Row="2" Text="{Binding NameForResult , Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
-        <TextBlock Grid.Row="3" Text="{Binding LastNameForResult , Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
-        <TextBlock Grid.Row="5" Text="{Binding EmailForResult, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
-        <TextBlock Grid.Row="6" Text="{Binding Age, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
-        <TextBlock Grid.Row="7" Text="{Binding ChineseHoroscope, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
-        <TextBlock Grid.Row="8" Text="{Binding WestHoroscope, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
-        <TextBlock Grid.Row="9" Text="{Binding IsAdult, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
-        <TextBlock Grid.Row="10" Text="{Binding IsBirthday, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+
     </Grid>
 </UserControl>

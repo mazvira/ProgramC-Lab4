@@ -28,7 +28,7 @@ namespace Lab4
             else
             {
                 Users = new List<Person>();
-                for(int i = 0; i<50;++i)
+                for (int i = 0; i < 50; ++i)
                 {
                     Person toAdd = new Person($"Olya{i}", $"Petrenko{i}", new DateTime(1996, 5, 23));
                     Users.Add(toAdd);
@@ -38,11 +38,11 @@ namespace Lab4
 
         internal static Person CreatePerson(string name, string lastName, string email, DateTime dateOfBirth)
         {
-            Person person=null;
+            Person person = null;
             try
             {
 
-                person =new Person(name, lastName, email, dateOfBirth);
+                person = new Person(name, lastName, email, dateOfBirth);
             }
             catch (FutureDateOfBirthException ex)
             {
@@ -60,7 +60,7 @@ namespace Lab4
             }
             if (person != null)
                 Users.Add(person);
-            return person ;
+            return person;
         }
 
         internal static void SaveData()

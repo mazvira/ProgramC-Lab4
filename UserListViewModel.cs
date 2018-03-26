@@ -25,29 +25,28 @@ namespace Lab4
 
         internal UserListViewModel(DataGrid dataGrid)
         {
-            _users = new ObservableCollection<Person> (DBAdapter.Users);
+            _users = new ObservableCollection<Person>(DBAdapter.Users);
             _dataGrid = dataGrid;
-            _dataGrid.CellEditEnding += DataGrid_CellEditEnding; 
+            _dataGrid.CellEditEnding += DataGrid_CellEditEnding;
 
         }
 
-        //eventHaNDLER
         private void DataGrid_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
             _dataRow = e.Row.Item as DataRowView;
             string text = ((TextBox)e.EditingElement).Text;
-            string column =  e.Column.Header.ToString();
+            string column = e.Column.Header.ToString();
             switch (column)
             {
-              
+
                 case "E-mail":
-                    if(Person.IsValidEmail(text) == false)
+                    if (Person.IsValidEmail(text) == false)
                         e.Cancel = true;
                     break;
                 case "Date of birth":
 
                     string[] date = text.Split('/');
-                    if(Int32.Parse(date[0]) > 31 || Int32.Parse(date[0])<1|| Int32.Parse(date[1])>12 || Int32.Parse(date[1]) <1 || Int32.Parse(date[2])<1883|| Int32.Parse(date[2])>2018)
+                    if (Int32.Parse(date[0]) > 31 || Int32.Parse(date[0]) < 1 || Int32.Parse(date[1]) > 12 || Int32.Parse(date[1]) < 1 || Int32.Parse(date[2]) < 1883 || Int32.Parse(date[2]) > 2018)
                         e.Cancel = true;
                     string b = date[2].ToString();
                     DateTime dateNew = new DateTime(Int32.Parse(date[2]), Int32.Parse(date[1]), Int32.Parse(date[0]));
@@ -55,15 +54,15 @@ namespace Lab4
                     {
                         Person.CountAge(dateNew);
                     }
-                    catch(Exception exception)
+                    catch (Exception)
                     {
                         e.Cancel = true;
                     }
 
                     break;
-      
+
             }
-                      
+
         }
 
         #region Implementation

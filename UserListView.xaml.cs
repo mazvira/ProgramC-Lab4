@@ -20,6 +20,13 @@ namespace Lab4
         {
             Person person = (Person)UserDataGrid.SelectedItems[0];
             DBAdapter.Users.Remove(person);
+            ((UserListViewModel)DataContext).Users.Remove(person);
+        }
+
+        internal void Update()
+        {
+            if (!((UserListViewModel)DataContext).Users.Contains(StationManager.CurrentPerson))
+                ((UserListViewModel)DataContext).Users.Add(StationManager.CurrentPerson);
         }
 
     }

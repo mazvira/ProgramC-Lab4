@@ -1,11 +1,11 @@
 ﻿using FontAwesome.WPF;
 using System;
+using System.ComponentModel;
 using System.Windows;
-
 
 namespace Lab4
 {
- 
+
     public partial class MainWindow : Window
     {
         private ImageAwesome _loader;
@@ -15,7 +15,7 @@ namespace Lab4
         public MainWindow()
         {
             InitializeComponent();
-            ShowUsersListView(UsersGrid, );
+            ShowUsersListView();
         }
 
         public void ShowLoader(bool isShow)
@@ -23,12 +23,15 @@ namespace Lab4
             LoaderHelper.OnRequestLoader(MainGrid, ref _loader, isShow);
         }
 
-        private void ShowUsersListView(object o, EventArgs e)
+        private void ShowUsersListView()
         {
             if (_userListView == null)
             {
                 _userListView = new UserListView(ShowFillOutForm);
             }
+            else
+                _userListView.Update();
+
             ShowView(_userListView);
         }
 
@@ -45,6 +48,12 @@ namespace Lab4
         {
             MainGrid.Children.Clear();
             MainGrid.Children.Add(element);
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            DBAdapter.SaveData();
+            base.OnClosing(e);
         }
     }
 }
